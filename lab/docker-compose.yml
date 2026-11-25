@@ -28,9 +28,9 @@ services:
       - NET_ADMIN
       - NET_RAW
       - SYS_NICE
-    command: ["-i", "eth0", "-k", "none", "-S", "/etc/suricata/local.rules"]
+    command: ["-i", "eth0", "-k", "none", "-S", "/lab-rules/local.rules"]
     volumes:
-      - ./sensors/suricata/local.rules:/etc/suricata/local.rules:ro
+      - ./sensors/suricata:/lab-rules:ro
       - ./sensors/logs/suricata:/var/log/suricata
 
   zeek:
