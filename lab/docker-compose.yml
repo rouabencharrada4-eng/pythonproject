@@ -18,10 +18,39 @@ services:
       labnet:
         ipv4_address: 172.30.0.20
 
+  suricata:
+    image: jasonish/suricata:latest
+    container_name: lab-suricata
+    network_mode: "service:dvwa"
+    depends_on:
+      - dvwa
+    cap_add:
+      - NET_ADMIN
+      - NET_RAW
+      - SYS_NICE
+    command: ["-i", "eth0", "-k", "none", "-S", "/etc/suricata/local.rules"]
+    volumes:
+      - ./sensors/suricata/local.rules:/etc/suricata/local.rules:ro
+      - ./sensors/logs/suricata:/var/log/suricata
+
+  zeek:
+    image: zeek/zeek:latest
+    container_name: lab-zeek
+    network_mode: "service:dvwa"
+    depends_on:
+      - dvwa
+    cap_add:
+      - NET_ADMIN
+      - NET_RAW
+    working_dir: /logs
+    command: ["zeek", "-i", "eth0", "local", "LogAscii::use_json=T"]
+    volumes:
+      - ./sensors/logs/zeek:/logs
+
 networks:
   labnet:
     driver: bridge
-    internal: true        # no access to the internet or your real network
+    internal: true
     ipam:
       config:
         - subnet: 172.30.0.0/24
