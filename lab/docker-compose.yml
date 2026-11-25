@@ -1,0 +1,27 @@
+services:
+  dvwa:
+    image: vulnerables/web-dvwa
+    container_name: lab-dvwa
+    networks:
+      labnet:
+        ipv4_address: 172.30.0.10
+
+  attacker:
+    build: ./attacker
+    container_name: lab-attacker
+    cap_add:
+      - NET_RAW
+      - NET_ADMIN
+    volumes:
+      - ./attack-scripts:/work
+    networks:
+      labnet:
+        ipv4_address: 172.30.0.20
+
+networks:
+  labnet:
+    driver: bridge
+    internal: true        # no access to the internet or your real network
+    ipam:
+      config:
+        - subnet: 172.30.0.0/24
