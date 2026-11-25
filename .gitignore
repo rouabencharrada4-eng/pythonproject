@@ -1,0 +1,30 @@
+# Datasets (too large / not meant for Git)
+data/raw/*
+data/processed/*
+data/synthetic/*
+!data/**/.gitkeep
+
+# Dataset/capture file types, wherever they land
+*.csv
+*.pcap
+*.pcapng
+
+# Sensor logs
+lab/sensors/logs/*
+!lab/sensors/logs/.gitkeep
+
+# Models / notebook checkpoints
+*.pkl
+*.joblib
+*.h5
+.ipynb_checkpoints/
+
+# Python
+__pycache__/
+*.pyc
+.venv/
+venv/
+
+# OS / editor
+.DS_Store
+.vscode/

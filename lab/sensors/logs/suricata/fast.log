@@ -1,4 +1,0 @@
-11/25/2026-19:37:06.958135  [**] [1:1000001:1] LAB ICMP echo request [**] [Classification: (null)] [Priority: 3] {ICMP} 172.30.0.20:8 -> 172.30.0.10:0
-11/25/2026-19:37:07.972530  [**] [1:1000001:1] LAB ICMP echo request [**] [Classification: (null)] [Priority: 3] {ICMP} 172.30.0.20:8 -> 172.30.0.10:0
-11/25/2026-19:37:08.996559  [**] [1:1000001:1] LAB ICMP echo request [**] [Classification: (null)] [Priority: 3] {ICMP} 172.30.0.20:8 -> 172.30.0.10:0
-11/25/2026-19:37:16.733571  [**] [1:1000002:1] LAB Possible port scan (many SYN) [**] [Classification: (null)] [Priority: 3] {TCP} 172.30.0.20:36538 -> 172.30.0.10:533
